@@ -1,5 +1,4 @@
 const { User, Thought } = require("../models");
-const { findByIdAndUpdate } = require("../models/User");
 
 module.exports = {
   // Get all users
@@ -85,11 +84,21 @@ module.exports = {
         { new: true }
       );
 
+      const friend = await User.findByIdAndUpdate(
+        friendId,
+        {
+          $addToSet: {
+            friends: userId,
+          },
+        },
+        { new: true }
+      );
+
       if (!user) {
         return res.status(404).json({ message: "No user found with that ID" });
       }
 
-      res.json(user);
+      res.json({ message: "Successfully added new friends!" });
     } catch (err) {
       res.status(500).json(err.message);
     }
