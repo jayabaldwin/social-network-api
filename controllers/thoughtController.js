@@ -25,11 +25,21 @@ module.exports = {
   // Post new thought
   async postThought(req, res) {
     try {
+      const { username } = req.body;
+
+      // Check if the user exists
+      const user = await User.findOne({ username: username });
+      if (!user) {
+        return res.status(404).json({ message: "User not found" });
+      }
+
+      // Create the thought
       const thought = await Thought.create(req.body);
 
+      // Update the user's thoughts array with the newly created thought
       await User.findOneAndUpdate(
-        { username: thought.username },
-        { $addToSet: { thoughts: thought } },
+        { username: username },
+        { $addToSet: { thoughts: thought._id } },
         { new: true }
       );
 
@@ -40,12 +50,12 @@ module.exports = {
   },
   // Update a thought
   async updateThought(req, res) {
-    console.log(req.body);
-
     try {
+      const { thoughtText } = req.body;
+
       const thought = await Thought.findOneAndUpdate(
         { _id: req.params.thoughtId },
-        { $set: { thoughtText: req.body } },
+        { $set: { thoughtText: thoughtText } },
         { new: true }
       );
 
@@ -62,22 +72,25 @@ module.exports = {
     }
   },
   // Delete a thought and associated reactions
-  //   async deleteThought(req, res) {
-  //     try {
-  //       const thought = await Thought.findOneAndDelete({ _id: req.params.thoughtId });
+  async deleteThought(req, res) {
+    try {
+      const thought = await Thought.findOneAndDelete({
+        _id: req.params.thoughtId,
+      });
 
-  //       if (!thought) {
-  //         return res.status(404).json({ message: "No thought with this id!" });
-  //       }
+      if (!thought) {
+        return res.status(404).json({ message: "No thought with this id!" });
+      }
 
-  //       await Thought.deleteMany({ username: username });
-  //       return {
-  //         success: true,
-  //         message: "User and associated thoughts deleted successfully",
-  //       };
-  //     } catch (err) {
-  //       console.log(err);
-  //       res.status(500).json(err);
-  //     }
-  //   },
+      // ONCE REACTIONS ARE SET UP
+
+      // await Thought.deleteMany({ _id: { $in: thought.reactions } });
+      res.json({
+        message: "Thoughts and associated reactions successfully deleted",
+      });
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  },
 };
