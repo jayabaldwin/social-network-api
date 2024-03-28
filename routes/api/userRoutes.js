@@ -9,9 +9,9 @@ const {
   deleteFriend,
 } = require("../../controllers/userController");
 
-// router.route("/").get(getUsers).post(createUser);
+router.route("/").get(getUsers).post(createUser);
 
-// router.route("/:userId").get(getSingleUser).put(updateUser).delete(deleteUser);
+router.route("/:userId").get(getSingleUser).put(updateUser).delete(deleteUser);
 // // For get single: include populated thought and friend data
 // // Bonus: remove users associated thoughts
 
