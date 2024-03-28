@@ -81,7 +81,7 @@ module.exports = {
       if (!thought) {
         return res.status(404).json({ message: "No thought with this id!" });
       }
-
+      // Unneccessary as reactions is a subdoc not a model?
       // await Thought.deleteMany({ _id: { $in: thought.reactions } });
       res.json({
         message: "Thoughts and associated reactions successfully deleted",

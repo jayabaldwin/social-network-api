@@ -36,6 +36,10 @@ const reactionSchema = new Schema(
 // Thoughts schema
 const thoughtSchema = new Schema(
   {
+    username: {
+      type: String,
+      required: true,
+    },
     thoughtText: {
       type: String,
       required: true,
@@ -49,10 +53,6 @@ const thoughtSchema = new Schema(
         const formattedDate = moment(date).format("MMMM Do YYYY, h:mm a");
         return formattedDate;
       },
-    },
-    username: {
-      type: String,
-      required: true,
     },
     reactions: [reactionSchema],
   },
