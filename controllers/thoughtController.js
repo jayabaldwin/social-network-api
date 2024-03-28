@@ -82,8 +82,6 @@ module.exports = {
         return res.status(404).json({ message: "No thought with this id!" });
       }
 
-      // ONCE REACTIONS ARE SET UP
-
       // await Thought.deleteMany({ _id: { $in: thought.reactions } });
       res.json({
         message: "Thoughts and associated reactions successfully deleted",
@@ -110,6 +108,38 @@ module.exports = {
 
       res.json(thought);
     } catch (err) {
+      res.status(500).json(err);
+    }
+  },
+  // Pull and remove a reaction
+  async deleteReaction(req, res) {
+    try {
+      // const reactionId = req.body;
+      // const thought = await Thought.findOneAndUpdate(
+      //   {
+      //     _id: req.params.thoughtId,
+      //   },
+      //   {
+      //     $pull: {
+      //       reactions: {
+      //         _id: reactionId,
+      //       },
+      //     },
+      //   }
+      // );
+      // const thought = await Thought.findById(req.params.thoughtId);
+      // const reactionId = req.body;
+      // console.log(reactionId);
+      // if (thought.reactions._id === reactionId) {
+      //   thought.reactions.pull({ reactionId });
+      // }
+      // if (!thought) {
+      //   return res.status(404).json({ message: "No thought found" });
+      // }
+      // await thought.save();
+      // res.json(thought);
+    } catch (err) {
+      console.log(err);
       res.status(500).json(err);
     }
   },

@@ -4,7 +4,6 @@ const moment = require("moment");
 // Reactions subdocument
 const reactionSchema = new Schema(
   {
-    // The id was throwing errors
     // reactionId: {
     //   type: Schema.Types.ObjectId,
     //   default: () => new Types.ObjectId(),

@@ -95,16 +95,39 @@ module.exports = {
     }
   },
   // Remove a friend
-  // async deleteFriend(req, res) {
-  //   try {
-  //     const user = await User.findOneAndDelete({ _id: req.params.userId });
-
-  //     await Thought.deleteMany({ _id: { $in: user.thoughts } });
-  //     res.json({
-  //       message: "Friend has been removed",
-  //     });
-  //   } catch (err) {
-  //     res.status(500).json(err.message);
-  //   }
-  // },
+  async deleteFriend(req, res) {
+    try {
+      const friend = req.body;
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        {
+          $pull: {
+            _id: friend,
+          },
+        }
+      );
+      res.json(user);
+    } catch (err) {
+      res.status(500).json(err.message);
+    }
+  },
+  async deleteFriend(req, res) {
+    try {
+      const friendId = req.params.friendId;
+      console.log(friendId);
+      const user = await User.findOneAndUpdate(
+        { _id: req.params.userId },
+        {
+          $pull: {
+            friends: friendId,
+          },
+        },
+        { new: true }
+      );
+      console.log(user);
+      res.json(user);
+    } catch (err) {
+      res.status(500).json({ message: err.message });
+    }
+  },
 };
