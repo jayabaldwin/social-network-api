@@ -94,18 +94,17 @@ module.exports = {
       res.status(500).json(err.message);
     }
   },
-  // Delete a user and associated thoughts
-  //  async deleteFriend(req, res) {
+  // Remove a friend
+  // async deleteFriend(req, res) {
   //   try {
   //     const user = await User.findOneAndDelete({ _id: req.params.userId });
 
   //     await Thought.deleteMany({ _id: { $in: user.thoughts } });
   //     res.json({
-  //       message: "User and associated thoughts successfully deleted",
+  //       message: "Friend has been removed",
   //     });
   //   } catch (err) {
-  //     console.log(err);
-  //     res.status(500).json(err);
+  //     res.status(500).json(err.message);
   //   }
   // },
 };

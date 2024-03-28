@@ -93,4 +93,24 @@ module.exports = {
       res.status(500).json(err);
     }
   },
+  // Post new reaction
+  async postReaction(req, res) {
+    try {
+      const { username, reactionBody } = req.body;
+      const thoughtId = req.params.thoughtId;
+
+      const thought = await Thought.findById(thoughtId);
+      if (!thought) {
+        return res.status(404).json({ message: "No thought found" });
+      }
+
+      // Add the reaction to the existing thought's reactions array
+      thought.reactions.push({ username, reactionBody });
+      await thought.save();
+
+      res.json(thought);
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  },
 };
