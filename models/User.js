@@ -12,17 +12,18 @@ const userSchema = new Schema(
       type: String,
       unique: [true, "invalid credentials"],
       required: true,
+      // Email validation
     },
     thoughts: [
       {
         type: Schema.Types.ObjectId,
-        ref: "thought",
+        ref: "Thought",
       },
     ],
     friends: [
       {
         type: Schema.Types.ObjectId,
-        ref: "user",
+        ref: "User",
       },
     ],
   },
