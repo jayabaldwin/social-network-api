@@ -26,12 +26,21 @@ connection.once("open", async () => {
       );
       const thoughtIds = thoughtsForUser.map((t) => t._id);
 
+      // const friendsForUser
+
       // Update the user document with the thought ids
       await User.create({
         username: userData.username,
         email: userData.email,
         thoughts: thoughtIds,
+        // friends:
       });
+
+      // Fetch user ids to allocate friends
+      // const userIds = await User.find({});
+      // const friends = userIds.filter((u) => u._id);
+
+      // console.log(friends);
     }
 
     console.table(thought);
