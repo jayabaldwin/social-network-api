@@ -13,7 +13,7 @@ MongoDB is an ideal choice when it comes to social networks thanks to its abilit
 
 ### Brief functionality display:
 
-![Functionality Walk Through](./assets/employee-tracker.gif)
+![Functionality Walk Through](./assets/social-network-api-testing.gif)
 
 ## Table of Contents
 
