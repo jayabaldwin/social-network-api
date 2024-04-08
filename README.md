@@ -11,9 +11,9 @@ MongoDB is an ideal choice when it comes to social networks thanks to its abilit
 
 <br>
 
-### Brief functionality display:
+### Insomnia Routes Walkthrough:
 
-![Functionality Walk Through](./assets/social-network-api-testing.gif)
+![Functionality Walk Through]([./assets/social-network-api-testing.gif](https://private-user-images.githubusercontent.com/148409249/320661667-084bf399-cbad-4f2e-ad3f-ee2dbef9b4a2.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MTI2MTQ3OTgsIm5iZiI6MTcxMjYxNDQ5OCwicGF0aCI6Ii8xNDg0MDkyNDkvMzIwNjYxNjY3LTA4NGJmMzk5LWNiYWQtNGYyZS1hZDNmLWVlMmRiZWY5YjRhMi5tcDQ_WC1BbXotQWxnb3JpdGhtPUFXUzQtSE1BQy1TSEEyNTYmWC1BbXotQ3JlZGVudGlhbD1BS0lBVkNPRFlMU0E1M1BRSzRaQSUyRjIwMjQwNDA4JTJGdXMtZWFzdC0xJTJGczMlMkZhd3M0X3JlcXVlc3QmWC1BbXotRGF0ZT0yMDI0MDQwOFQyMjE0NThaJlgtQW16LUV4cGlyZXM9MzAwJlgtQW16LVNpZ25hdHVyZT1kMGY1Mzg1ZWM4NjZlZmNlMDYyODhmYzUzMWY5Y2Q5ZDM5ZWMzN2MxYWM4NTZmNjY2ZTYzYTFjOTk4MTNhMTkxJlgtQW16LVNpZ25lZEhlYWRlcnM9aG9zdCZhY3Rvcl9pZD0wJmtleV9pZD0wJnJlcG9faWQ9MCJ9.VdiRKh8P6Vs-xaztqwNBGCkMpN256gJzEIQ8WNlW7a8))
 
 ## Table of Contents
 
